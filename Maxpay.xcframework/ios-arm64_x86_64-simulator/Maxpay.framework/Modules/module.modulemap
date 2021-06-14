@@ -1,0 +1,11 @@
+framework module Maxpay {
+  umbrella header "Maxpay.h"
+
+  export *
+  module * { export * }
+}
+
+module Maxpay.Swift {
+    header "Maxpay-Swift.h"
+    requires objc
+}

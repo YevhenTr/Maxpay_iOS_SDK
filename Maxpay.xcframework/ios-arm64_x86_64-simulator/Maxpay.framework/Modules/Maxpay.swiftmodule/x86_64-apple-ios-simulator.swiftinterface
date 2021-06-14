@@ -1,0 +1,265 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)
+// swift-module-flags: -target x86_64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Maxpay
+import CommonCrypto
+import Foundation
+@_exported import Maxpay
+import Swift
+import UIKit
+import WebKit
+public struct MXPTransactionResponse : Swift.Codable {
+  public let apiVersion: Swift.Int
+  public let merchantAcc: Swift.String?
+  public let sessionID: Swift.String
+  public let transactionUniqueID: Swift.String?
+  public let token: Swift.String?
+  public let reference: Swift.String?
+  public let timestamp: Swift.Int
+  public let authCode: Swift.String?
+  public let paymentAuthRequest: Swift.String?
+  public let accessControlServer: Swift.String?
+  public let eci: Swift.Int?
+  public let status: Swift.String
+  public let responseCode: Swift.Int
+  public let message: Swift.String
+  public var error: Foundation.NSError? {
+    get
+  }
+  public enum CodingKeys : Swift.String, Swift.CodingKey {
+    case apiVersion
+    case merchantAcc
+    case sessionID
+    case transactionUniqueID
+    case token
+    case reference
+    case timestamp
+    case authCode
+    case paymentAuthRequest
+    case accessControlServer
+    case eci
+    case status
+    case responseCode
+    case message
+    public typealias RawValue = Swift.String
+    public init?(rawValue: Swift.String)
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+    public init?(stringValue: Swift.String)
+    public var intValue: Swift.Int? {
+      get
+    }
+    public init?(intValue: Swift.Int)
+  }
+  public init(apiVersion: Swift.Int, merchantAcc: Swift.String?, sessionID: Swift.String, transactionUniqueID: Swift.String?, token: Swift.String?, reference: Swift.String?, timestamp: Swift.Int, authCode: Swift.String?, paymentAuthRequest: Swift.String?, accessControlServer: Swift.String?, eci: Swift.Int?, status: Swift.String, responseCode: Swift.Int, message: Swift.String)
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct MXPFormFieldsConfiguration {
+  public let isBirthdayFieldNeeded: Swift.Bool
+  public let isBillingAddressNeeded: Swift.Bool
+  public let isNameFieldNeeded: Swift.Bool
+  public let isCityFieldNeeded: Swift.Bool
+  public let isAddressFieldNeeded: Swift.Bool
+  public let isZIPFieldNeeded: Swift.Bool
+  public let isCountryFieldNeeded: Swift.Bool
+  public init(isBirthdayFieldNeeded: Swift.Bool, isBillingAddressNeeded: Swift.Bool, isNameFieldNeeded: Swift.Bool, isCityFieldNeeded: Swift.Bool, isZIPFieldNeeded: Swift.Bool, isAddressFieldNeeded: Swift.Bool, isCountryFieldNeeded: Swift.Bool)
+}
+public struct MXPPaymentConfiguration {
+  public let merchant: Maxpay.MXPMerchant
+  public let order: Maxpay.MXPOrder
+  public let customer: Maxpay.MXPCustomer
+  public let formFieldsConfiguration: Maxpay.MXPFormFieldsConfiguration
+  public let signature: Swift.String
+  public init(merchant: Maxpay.MXPMerchant, customer: Maxpay.MXPCustomer, order: Maxpay.MXPOrder, signature: Swift.String, billingAddressConfiguration: Maxpay.MXPFormFieldsConfiguration)
+}
+public struct MXPTheme {
+  public let backgroundColor: UIKit.UIColor
+  public let errorColor: UIKit.UIColor
+  public let hyperlinkColor: UIKit.UIColor
+  public let headerTitleColor: UIKit.UIColor
+  public let headerAmountColor: UIKit.UIColor
+  public let headerSeparatorColor: UIKit.UIColor
+  public let headerStandardTitleFont: UIKit.UIFont
+  public let headerLargeTitleFont: UIKit.UIFont
+  public let headerAmountFont: UIKit.UIFont
+  public let fieldBackgroundColor: UIKit.UIColor
+  public let fieldTitleColor: UIKit.UIColor
+  public let fieldTextColor: UIKit.UIColor
+  public let fieldPlaceholderColor: UIKit.UIColor
+  public let fieldTitleFont: UIKit.UIFont
+  public let fieldTextFont: UIKit.UIFont
+  public let fieldBackgroundCornerRadius: CoreGraphics.CGFloat
+  public let checkmarkColor: UIKit.UIColor
+  public let conditionsTextColor: UIKit.UIColor
+  public let checkboxCornerRadius: CoreGraphics.CGFloat
+  public let conditionsFont: UIKit.UIFont
+  public let enabledButtonBackgroundColor: UIKit.UIColor
+  public let enabledButtonTitleColor: UIKit.UIColor
+  public let disabledButtonBackgroundColor: UIKit.UIColor
+  public let disabledButtonTitleColor: UIKit.UIColor
+  public let buttonTitleFont: UIKit.UIFont
+  public let buttonCornerRadius: CoreGraphics.CGFloat
+  public init(backgroundColor: UIKit.UIColor, errorColor: UIKit.UIColor, hyperlinkColor: UIKit.UIColor, headerTitleColor: UIKit.UIColor, headerAmountColor: UIKit.UIColor, headerSeparatorColor: UIKit.UIColor, headerStandardTitleFont: UIKit.UIFont, headerLargeTitleFont: UIKit.UIFont, headerAmountFont: UIKit.UIFont, fieldBackgroundColor: UIKit.UIColor, fieldTitleColor: UIKit.UIColor, fieldTextColor: UIKit.UIColor, fieldPlaceholderColor: UIKit.UIColor, fieldTitleFont: UIKit.UIFont, fieldTextFont: UIKit.UIFont, fieldBackgroundCornerRadius: CoreGraphics.CGFloat, checkmarkColor: UIKit.UIColor, conditionsTextColor: UIKit.UIColor, checkboxCornerRadius: CoreGraphics.CGFloat, conditionsFont: UIKit.UIFont, enabledButtonBackgroundColor: UIKit.UIColor, enabledButtonTitleColor: UIKit.UIColor, disabledButtonBackgroundColor: UIKit.UIColor, disabledButtonTitleColor: UIKit.UIColor, buttonTitleFont: UIKit.UIFont, buttonCornerRadius: CoreGraphics.CGFloat)
+}
+extension MXPTheme {
+  public static var `default`: Maxpay.MXPTheme {
+    get
+  }
+}
+public struct MXPMerchant {
+  public let apiVersion: Swift.Int
+  public let authType: Maxpay.MXPAuthorizationType
+  public let publicKey: Swift.String
+  public let merchantUserID: Swift.String?
+  public let merchantDomainName: Swift.String?
+  public let merchantAffiliateID: Swift.String?
+  public let merchantProductName: Swift.String?
+  public let merchantDescriptor: Swift.String?
+  public let merchantPhone: Swift.String?
+  public let midReference: Swift.String?
+  public let cofType: Maxpay.MXPCOFType?
+  public let sale3DRedirect: Maxpay.MXPSale3DRedirect?
+  public let auth3DRedirect: Swift.String?
+  public init(apiVersion: Swift.Int, publicKey: Swift.String, merchantUserID: Swift.String?, merchantDomainName: Swift.String?, merchantAffiliateID: Swift.String?, merchantProductName: Swift.String?, merchantDescriptor: Swift.String?, merchantPhone: Swift.String?, midReference: Swift.String?, cofType: Maxpay.MXPCOFType?, sale3DRedirect: Maxpay.MXPSale3DRedirect?, auth3DRedirect: Swift.String?)
+}
+public struct MXPSale3DRedirect {
+  public let callbackURL: Swift.String
+  public let redirectURL: Swift.String
+  public init(callbackURL: Swift.String, redirectURL: Swift.String)
+}
+public struct MXPCustomer {
+  public let firstName: Swift.String
+  public let lastName: Swift.String
+  public let phone: Swift.String?
+  public let email: Swift.String
+  public let ip: Swift.String
+  public let birthday: Foundation.Date?
+  public let address: Maxpay.MXPBillingAddress
+  public init(firstName: Swift.String, lastName: Swift.String, phone: Swift.String?, email: Swift.String, ip: Swift.String, birthday: Foundation.Date?, address: Maxpay.MXPBillingAddress)
+}
+public struct MXPBillingAddress {
+  public let country: Swift.String
+  public let state: Swift.String?
+  public let city: Swift.String?
+  public let address: Swift.String?
+  public let zip: Swift.String?
+  public init(country: Swift.String, state: Swift.String?, city: Swift.String?, address: Swift.String?, zip: Swift.String?)
+}
+extension Float {
+  public func mxp_roundedTo(places: Swift.Int, rule: Swift.FloatingPointRoundingRule = .toNearestOrAwayFromZero) -> Swift.Float
+}
+public enum MXPAuthorizationType : Swift.String {
+  case signature
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.String)
+}
+public enum MXPTransactionType : Swift.String {
+  case auth
+  case auth3d
+  case sale
+  case sale3d
+  public var intValue: Swift.Int {
+    get
+  }
+  public var is3DSecure: Swift.Bool {
+    get
+  }
+  public init?(number: Swift.Int)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.String)
+}
+public enum MXPCOFType : Swift.String {
+  case CITInitial
+  case CITSubsequent
+  case MIT
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.String)
+}
+public struct MXPOrder {
+  public let transactionUniqueID: Swift.String
+  public let transactionType: Maxpay.MXPTransactionType
+  public let amount: Swift.Float
+  public let amountString: Swift.String
+  public let currency: Swift.String
+  public init(transactionUniqueID: Swift.String, transactionType: Maxpay.MXPTransactionType, amount: Swift.Float, currency: Swift.String)
+}
+extension String {
+  public func mxp_sha256() -> Swift.String
+}
+@objc @_hasMissingDesignatedInitializers final public class MXPPaymentViewController : UIKit.UIViewController {
+  public init(configuration: Maxpay.MXPPaymentConfiguration, theme: Maxpay.MXPTheme, updateSignatureBlock: @escaping (Maxpay.MXPSignatureInfo, @escaping (Swift.String) -> ()) -> (), completion: @escaping (Maxpay.MXPPaymentResponseType) -> ())
+  @objc override final public func loadView()
+  @objc override final public func viewDidLoad()
+  @objc deinit
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+}
+public struct MXPSignatureInfo : Swift.Codable {
+  public let apiVersion: Swift.Int
+  public let authType: Swift.String
+  public let merchantUserID: Swift.String?
+  public let merchantDomainName: Swift.String?
+  public let merchantAffiliateID: Swift.String?
+  public let merchantProductName: Swift.String?
+  public let merchantDescriptor: Swift.String?
+  public let merchantPhone: Swift.String?
+  public let midReference: Swift.String?
+  public let cofType: Swift.String?
+  public let callbackURL: Swift.String
+  public let redirectURL: Swift.String
+  public let transactionUniqueID: Swift.String
+  public let transactionType: Swift.String
+  public let amount: Swift.String
+  public let currency: Swift.String
+  public let firstName: Swift.String
+  public let lastName: Swift.String
+  public let phone: Swift.String?
+  public let email: Swift.String
+  public let ip: Swift.String
+  public let birthday: Swift.String?
+  public let address: Swift.String?
+  public let city: Swift.String?
+  public let state: Swift.String?
+  public let zip: Swift.String?
+  public let country: Swift.String
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+extension MXPSignatureInfo {
+  public init(merchant: Maxpay.MXPMerchant, customer: Maxpay.MXPCustomer, order: Maxpay.MXPOrder)
+}
+extension Encodable {
+  public func mxp_encoded() throws -> Foundation.Data
+  public var mxp_dictionary: [Swift.String : Any?]? {
+    get
+  }
+}
+public enum MXPPaymentResponseType {
+  case error(Swift.Error)
+  case success(Maxpay.MXPTransactionResponse)
+  case success3DS
+}
+extension Maxpay.MXPTransactionResponse.CodingKeys : Swift.Equatable {}
+extension Maxpay.MXPTransactionResponse.CodingKeys : Swift.Hashable {}
+extension Maxpay.MXPTransactionResponse.CodingKeys : Swift.RawRepresentable {}
+extension Maxpay.MXPAuthorizationType : Swift.Equatable {}
+extension Maxpay.MXPAuthorizationType : Swift.Hashable {}
+extension Maxpay.MXPAuthorizationType : Swift.RawRepresentable {}
+extension Maxpay.MXPTransactionType : Swift.Equatable {}
+extension Maxpay.MXPTransactionType : Swift.Hashable {}
+extension Maxpay.MXPTransactionType : Swift.RawRepresentable {}
+extension Maxpay.MXPCOFType : Swift.Equatable {}
+extension Maxpay.MXPCOFType : Swift.Hashable {}
+extension Maxpay.MXPCOFType : Swift.RawRepresentable {}
